@@ -4,7 +4,7 @@ const App = () => {
 
    return (
     <div className='App'>
-        <h1>Dashboard</h1>
+        <h1>Welcome to AWSS ENERGY</h1>
      </div>
         );
 };
