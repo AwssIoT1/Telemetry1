@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-const App = () => {
+const Title = () => {
 
 
    return (
@@ -9,4 +9,4 @@ const App = () => {
         );
 };
 
-export default App;
+export default Title;

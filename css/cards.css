@@ -1,0 +1,19 @@
+.CardRight{
+   margin-left: 5%;
+  padding-left: 0%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+ }
+
+ .card
+ {
+ border: 1px solid black;
+ height: 100px;
+ margin-top: 2%;
+ width: 300px;
+ float: left;
+ background-color: white;
+ margin-left: 2%;
+ border-radius: 10px; 
+ }
