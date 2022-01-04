@@ -4,7 +4,7 @@ const Title = () => {
 
    return (
     <div className='App'>
-        <h1 >Welcome to Sam Labs</h1>
+        <h1 >Welcome to AWSS Energy</h1>
      </div>
         );
 };
