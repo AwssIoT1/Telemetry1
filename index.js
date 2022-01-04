@@ -6,11 +6,14 @@ import Weather from "./Components/Weather.js"
 import Home2 from "./Components/Home2.js"
 
 ReactDOM.render(
-  <Router>
-    <Routes>
-    {/* <Route exact path="/" element={<Weather /> } />    */}
-    <Route exact path="/" element={<Home2 /> } /> 
-    </Routes>
-     </Router>,
+  // <Router>
+  //   <Routes>
+  //   {/* <Route exact path="/" element={<Weather /> } />    */}
+  //   <Route exact path="/" element={<Home2 /> } /> 
+  //   </Routes>
+  //    </Router>,
+  <React.StrictMode>
+  <Home2 />
+ </React.StrictMode>,
   document.getElementById('root')
 );
