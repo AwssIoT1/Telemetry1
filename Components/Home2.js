@@ -7,9 +7,7 @@ const Home2 = () => {
     return (
         <div>
             <Title />
-            <Cards
-                SignalName = "Power11"
-    />
+            <Cards />
         </div>
     );
       

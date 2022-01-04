@@ -3,10 +3,22 @@ import PropTypes from 'prop-types';
 import Pusher from 'pusher-js';
 import Card from "./Card.js"
 import '../css/cards.css';
-import { Divider } from "semantic-ui-react";
+// import { Divider } from "semantic-ui-react";
 //import usePusher, {data1} from '../Providers/pusher/UsePusher.js';
 // ------------------------------------
+Pusher.logToConsole = true;
+const pusher = new Pusher(
+  "768a2152b7c6fd195a2f", 
+  {
+    cluster: "ap2", 
+    forceTLS: true,
+  }
+ 
+);
+const channel = pusher.subscribe("chData"); 
 
+//-----------------------
+var count = 0;
 const Cards = ({SignalName}) => {
     const sig1 = SignalName
     var data121;   
@@ -17,7 +29,7 @@ const Cards = ({SignalName}) => {
     const [Frequency_Hz, setFrequency_Hz] = useState(() =>{return 0});
     const [PowerFactor, setPowerFactor] = useState(() =>{return 0});
     const [Time, setTime] = useState(() =>{return 0});
-    var count = 0;
+   
     var DateNow =    new Date();
     
     
@@ -36,20 +48,13 @@ const Cards = ({SignalName}) => {
     
     var myDate = new Date(1000*Time);
     // --------------------------------------------------------------------------------
-    Pusher.logToConsole = true;
+   
 
-    if (window.onload) then 
+
         count = count + 1;
         console.log(count)
-        const pusher = new Pusher(
-          "768a2152b7c6fd195a2f", 
-          {
-            cluster: "ap2", 
-            forceTLS: true,
-          }
-         
-        );
 
+        
   
               //parse data
     const getval = (data) =>{
@@ -61,12 +66,9 @@ const Cards = ({SignalName}) => {
       setTime(vals.Time)
     }
   
-        
-        const channel = pusher.subscribe("chData");
-     
-                 //fetch data
-
-              channel.bind("Power",getval); 
+  
+    channel.bind("Power",getval);       
+         
     // --------------------------------------------------------------------------------
 
 return (
@@ -96,7 +98,7 @@ return (
         />
         </div>
         <div>
-        <h1>Last data received: </h1>
+        <h1>Last data received: (every 10min)</h1>
         <h1>{Dateformat}  {Timeformat}</h1>
         <h1></h1>
         </div>
