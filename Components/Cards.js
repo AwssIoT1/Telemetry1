@@ -6,6 +6,7 @@ import '../css/cards.css';
 import { Divider } from "semantic-ui-react";
 //import usePusher, {data1} from '../Providers/pusher/UsePusher.js';
 // ------------------------------------
+
 const Cards = ({SignalName}) => {
     const sig1 = SignalName
     var data121;   
@@ -16,7 +17,7 @@ const Cards = ({SignalName}) => {
     const [Frequency_Hz, setFrequency_Hz] = useState(() =>{return 0});
     const [PowerFactor, setPowerFactor] = useState(() =>{return 0});
     const [Time, setTime] = useState(() =>{return 0});
-
+    var count = 0;
     var DateNow =    new Date();
     
     
@@ -32,10 +33,14 @@ const Cards = ({SignalName}) => {
     const diff = end - start;
     const seconds = Math.floor(diff / 1000 % 60);
 
-
+    
     var myDate = new Date(1000*Time);
     // --------------------------------------------------------------------------------
     Pusher.logToConsole = true;
+
+    if (window.onload) then 
+        count = count + 1;
+        console.log(count)
         const pusher = new Pusher(
           "768a2152b7c6fd195a2f", 
           {
@@ -45,22 +50,25 @@ const Cards = ({SignalName}) => {
          
         );
 
-        const getval = (data) =>{
-          var vals = JSON.parse(data.payload)
-          setPower_MW(vals.Power_MW)
-          setPower_MVAR(vals.Power_MVAR)
-          setFrequency_Hz(vals.Frequency_Hz)
-          setPowerFactor(vals.PowerFactor)
-          setTime(vals.Time)
-         
   
-        }
+              //parse data
+    const getval = (data) =>{
+      var vals = JSON.parse(data.payload)
+      setPower_MW(vals.Power_MW)
+      setPower_MVAR(vals.Power_MVAR)
+      setFrequency_Hz(vals.Frequency_Hz)
+      setPowerFactor(vals.PowerFactor)
+      setTime(vals.Time)
+    }
+  
+        
         const channel = pusher.subscribe("chData");
-            //fetch data
+     
+                 //fetch data
 
               channel.bind("Power",getval); 
     // --------------------------------------------------------------------------------
-  
+
 return (
     
     <div >
@@ -95,6 +103,7 @@ return (
     </div>
     
         );
+        // pusher.disconnect();
    
 };
 
