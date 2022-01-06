@@ -60,8 +60,62 @@
         const getval2 = (data) =>{
             
          var  vals2 = JSON.parse(data.payload)
-                 console.log(vals2.val0, vals2.val1)
-                setcount(vals2)
+         var val0 = vals2.val0
+         var val1 = vals2.val1
+         var val2 = vals2.val2
+         var val3 = vals2.val3
+         var val4 = vals2.val4
+         var val5 = vals2.val5
+         var Timeoptions = { hour: '2-digit', minute: '2-digit', second: '2-digit',  };
+        const time0 = new Date(val0.Time)
+        const Timeformat0 = time0.toLocaleString('en-IN',Timeoptions);
+        
+                const data1 = [
+                  {
+                    name:  val0.Time.replace(/^[^:]*([0-2]\d:[0-5]\d).*$/, "$1"),
+                    Freq: val0.Frequency,
+                    PF: val0.PowerFactor,
+                    Power_MW: val0.Power_MW,
+                    Power_MVAR: val0.Power_MVAR
+                    
+                  },
+                  {
+                    name: val1.Time.replace(/^[^:]*([0-2]\d:[0-5]\d).*$/, "$1"),
+                    Freq: val1.Frequency,
+                    PF: val1.PowerFactor,
+                    Power_MW: val1.Power_MW,
+                    Power_MVAR: val1.Power_MVAR
+                  },
+                  {
+                    name: val2.Time.replace(/^[^:]*([0-2]\d:[0-5]\d).*$/, "$1"),
+                    Freq: val2.Frequency,
+                    PF: val2.PowerFactor,
+                    Power_MW: val2.Power_MW,
+                    Power_MVAR: val2.Power_MVAR
+                  },
+                  {
+                    name: val3.Time.replace(/^[^:]*([0-2]\d:[0-5]\d).*$/, "$1"),
+                    Freq: val3.Frequency,
+                    PF: val3.PowerFactor,
+                    Power_MW: val3.Power_MW,
+                    Power_MVAR: val3.Power_MVAR
+                  },
+                  {
+                    name: val4.Time.replace(/^[^:]*([0-2]\d:[0-5]\d).*$/, "$1"),
+                    Freq: val4.Frequency,
+                    PF: val4.PowerFactor,
+                    Power_MW: val4.Power_MW,
+                    Power_MVAR: val4.Power_MVAR
+                  },
+                  {
+                    name:  val5.Time.replace(/^[^:]*([0-2]\d:[0-5]\d).*$/, "$1"),
+                    Freq: val5.Frequency,
+                    PF: val5.PowerFactor,
+                    Power_MW: val5.Power_MW,
+                    Power_MVAR: val5.Power_MVAR
+                  }
+                ];
+                setData_1h10m(data1)
           }
           channel2.bind("Power",getval2);
         },[]);
@@ -69,7 +123,7 @@
          
     
     
-    return  {Power_MW, Power_MVAR, Frequency_Hz, PowerFactor,Time,count} ;
+    return  {Power_MW, Power_MVAR, Frequency_Hz, PowerFactor,Time,Data_1h10m} ;
   
     };
    

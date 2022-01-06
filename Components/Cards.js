@@ -5,6 +5,7 @@ import Card from "./Card.js"
 import '../css/cards.css';
 // import { Divider } from "semantic-ui-react";
 import usePusher,{ Power_MW} from '../Providers/pusher/UsePusher.js';
+
 // ------------------------------------
 // Pusher.logToConsole = true;
 // const pusher = new Pusher(
@@ -22,9 +23,8 @@ import usePusher,{ Power_MW} from '../Providers/pusher/UsePusher.js';
 
 
 
-const Cards = () => {
-  const {Power_MW, Power_MVAR, Frequency_Hz, PowerFactor,Time,count} = usePusher();
-  console.log({count})
+const Cards = ({Power_MW, Power_MVAR, Frequency_Hz, PowerFactor,Time,count}) => {
+
   // const Power_MW = 6
   // const Power_MVAR = 6
   //   const Frequency_Hz = 7
@@ -119,6 +119,7 @@ return (
     </div>
     
         );
+        
         // pusher.disconnect();
    
 };
