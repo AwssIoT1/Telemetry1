@@ -21,14 +21,14 @@ const Home2 = () => {
     return (
         <div>
             <Title />
-            <Cards 
+            {/* <Cards 
             Power_MW = {Power_MW}
             Power_MVAR = {Power_MVAR}
             Frequency_Hz ={Frequency_Hz}
             PowerFactor = {PowerFactor}
             Time = {Time}
 
-             />
+             /> */}
              <Gauges
                 Power_MW = {Power_MW}
                 Power_MVAR = {Power_MVAR}

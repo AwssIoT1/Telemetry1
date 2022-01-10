@@ -1,0 +1,23 @@
+username - Samlabs
+pwd - $amlabs5
+
+org -Samlabs
+bucket- bucket1
+
+https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+List_of_tz_database_time_zones
+IN	Asia/Calcutta
+
+#list of functions
+#timeshift
+https://docs.influxdata.com/flux/v0.x/stdlib/all-functions/
+
+#Run Influx in powershell
+
+PS C:\WINDOWS\system32> wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.1.1-windows-amd64.zip -UseBasicParsing -OutFile influxdb2-2.1.1-windows-amd64.zip                                                                          PS C:\WINDOWS\system32> Expand-Archive .\influxdb2-2.1.1-windows-amd64.zip -DestinationPath 'C:\Program Files\InfluxData\influxdb\'
+PS C:\WINDOWS\system32> mv 'C:\Program Files\InfluxData\influxdb2-2.1.1-windows-amd64' 'C:\Program Files\InfluxData\influxdb'
+
+
+
+PS C:\WINDOWS\system32> cd -Path 'C:\Program Files\InfluxData\influxdb'
+PS C:\Program Files\InfluxData\influxdb> ./influxd

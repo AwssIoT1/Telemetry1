@@ -1,0 +1,15 @@
+node-red -p 1881 
+---------------------------
+
+msg.entries = Object.entries(msg.payload);
+msg.values = Object.values(msg.payload);
+msg.keys = Object.keys(msg.payload);
+
+-------------------------------------------------------------
+
+let values = Object.values(msg.payload);
+
+values.forEach((val,index) => {
+ // do something ..
+})
+----------------------------------------------

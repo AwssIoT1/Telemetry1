@@ -1,0 +1,24 @@
+.gauge-container {
+    width: 160px;
+    height: 140px;
+    display: block;
+    padding: 10px;
+    margin-top: 0%;
+    
+  }
+  .gauge-container > .gauge .dial {
+    stroke: #eee;
+    stroke-width: 10;
+    fill: rgba(0,0,0,0);
+  }
+  .gauge-container > .gauge .value {
+    stroke: rgb(47, 227, 255);
+    stroke-width: 8;
+    fill: rgba(0,0,0,0);
+  }
+  .gauge-container > .gauge .value-text {
+    fill: #3895D3;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+  }

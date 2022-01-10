@@ -1,0 +1,527 @@
+[
+    {
+        "id": "d90f114c85d72797",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "90b373106b0e1332",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "f6c719cd2fb5c835",
+        "type": "pusher out",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "channel": "chData",
+        "cluster": "ap2",
+        "eventname": "Power",
+        "x": 1310,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "175edb1ff13f994c",
+        "type": "function",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c2646a175e88614d",
+        "type": "inject",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "175edb1ff13f994c",
+                "3fa234d2090478fa",
+                "bd8d47bceaf28cf7"
+            ]
+        ]
+    },
+    {
+        "id": "3653b54105226064",
+        "type": "debug",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3fa234d2090478fa",
+        "type": "function",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "func": "var data = {\n    \"docType\": \"jts\",\n    \"version\": \"1.0\",\n    \"header\": {\n        \"startTime\": \"2018-08-16T02:00:00.000Z\",\n        \"endTime\": \"2018-08-16T02:20:43.000Z\",\n        \"recordCount\": 12,\n        \"columns\": {\n            \"0\": {\n                \"id\": \"541a5a129bc9b4035f906d70\",\n                \"name\": \"Data_1Y_1M\",\n                \"dataType\": \"NUMBER\",\n                \"renderType\": \"VALUE\",\n                \"format\": \"0.###\",\n                \"aggregate\": \"NONE\"\n            }\n        }\n    },\n       \"data_1Y\": [\n        {\n            \"ts\": \"2018-01-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n       {\n            \"ts\": \"2018-02-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n        {\n            \"ts\": \"2018-03-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n        {\n            \"ts\": \"2018-04-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n        {\n            \"ts\": \"2018-05-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n        {\n            \"ts\": \"2018-06-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n        {\n            \"ts\": \"2018-07-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n       {\n            \"ts\": \"2018-08-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n        {\n            \"ts\": \"2018-09-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n        {\n            \"ts\": \"2018-10-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n        {\n            \"ts\": \"2018-11-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        },\n        {\n            \"ts\": \"2018-12-01T00:00:00.000Z\",\n            \"f\": { \"0\": {\"v\": 99, \"q\": 100, \"a\": \"Power_kW\"},\n                   \"1\": {\"v\": 99, \"q\": 100, \"a\": \"Current_A\"} }\n        }\n    ]\n    \n};\nmsg.payload=JSON.stringify(data)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bd8d47bceaf28cf7",
+        "type": "function",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "func": "var data = {\"Power_MW\":33,\"Power_MVAR\":29,\"Frequency_Hz\":50,\"PowerFactor\":0.9};\nvar data1 = [30,80];\nmsg.payload=JSON.stringify(data);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "3653b54105226064"
+            ]
+        ]
+    },
+    {
+        "id": "22134567de0f99bd",
+        "type": "modbus-tcp-ip",
+        "z": "d90f114c85d72797",
+        "name": "Modbus-TCP Flexi Getter",
+        "ip": "192.168.1.8",
+        "port": "502",
+        "x": 410,
+        "y": 840,
+        "wires": [
+            [
+                "749509b7f34d4138",
+                "9378364538fd4d22"
+            ]
+        ]
+    },
+    {
+        "id": "5b1a08fcc05fd31f",
+        "type": "inject",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"unitid\":1,\"address\":1,\"functioncode\":3,\"quantity\":4}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 840,
+        "wires": [
+            [
+                "22134567de0f99bd"
+            ]
+        ]
+    },
+    {
+        "id": "65a305f337cbd7f4",
+        "type": "debug",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "responseBuffer.buffer",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "749509b7f34d4138",
+        "type": "function",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "func": "var payload=msg.responseBuffer.buffer[1];\nmsg.payload=payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9378364538fd4d22",
+        "type": "buffer-parser",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "data": "responseBuffer.buffer",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "hex",
+                "name": "Power_MW",
+                "offset": 0,
+                "length": 2,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "hex",
+                "name": "Power_MVAR",
+                "offset": 2,
+                "length": 2,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "hex",
+                "name": "Frequency_HZ",
+                "offset": 4,
+                "length": 2,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "hex",
+                "name": "PowerFactor",
+                "offset": 6,
+                "length": 2,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 960,
+        "y": 740,
+        "wires": [
+            [
+                "1bf3ff229d8ccdad",
+                "d8b700124cd4e0aa"
+            ]
+        ]
+    },
+    {
+        "id": "bb3a51ebabd72ef4",
+        "type": "debug",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "1bf3ff229d8ccdad",
+        "type": "function",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "func": "var Power_MW=parseInt(\"0x\"+msg.payload.Power_MW);\nvar Power_MVAR=parseInt(\"0x\"+msg.payload.Power_MVAR);\nvar Frequency_HZ=parseInt(\"0x\"+msg.payload.Frequency_HZ)/100;\nvar PowerFactor=parseInt(\"0x\"+msg.payload.PowerFactor)/100;\nvar Time = new Date();\nvar data = {\"Time\":Time, \"Power_MW\":Power_MW,\"Power_MVAR\":Power_MVAR,\"Frequency_Hz\":Frequency_HZ,\"PowerFactor\":PowerFactor};\nmsg.payload=JSON.stringify(data);\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 740,
+        "wires": [
+            [
+                "f6c719cd2fb5c835"
+            ]
+        ]
+    },
+    {
+        "id": "0b44804b884e7b57",
+        "type": "influxdb in",
+        "z": "d90f114c85d72797",
+        "influxdb": "90b373106b0e1332",
+        "name": "",
+        "query": "from(bucket: \"bucket2\")\n   |> range(start: -10m, stop: now())\n    |> filter(fn: (r) => r[\"_measurement\"] == \"test2\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Frequency_HZ\" or r[\"_field\"] == \"PowerFactor\" or r[\"_field\"] == \"Power_MVAR\" or r[\"_field\"] == \"Power_MW\")\n  |> aggregateWindow(every: 1m, fn: mean, createEmpty: false)\n  \n  |> pivot(rowKey:[\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> timeShift(duration: 5h30m)\n \n\n \n \n \n \n\n  \n ",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "samlabs",
+        "x": 870,
+        "y": 980,
+        "wires": [
+            [
+                "5bee703d7aae6442",
+                "bb3a51ebabd72ef4"
+            ]
+        ]
+    },
+    {
+        "id": "141ba53244b04249",
+        "type": "influxdb out",
+        "z": "d90f114c85d72797",
+        "influxdb": "90b373106b0e1332",
+        "name": "writedb",
+        "measurement": "test2",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "samlabs",
+        "bucket": "bucket2",
+        "x": 1320,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "d8b700124cd4e0aa",
+        "type": "function",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "func": "var Power_MW=parseInt(\"0x\"+msg.payload.Power_MW);\nvar Power_MVAR=parseInt(\"0x\"+msg.payload.Power_MVAR);\nvar Frequency_HZ=parseInt(\"0x\"+msg.payload.Frequency_HZ)/100;\nvar PowerFactor=parseInt(\"0x\"+msg.payload.PowerFactor)/100;\nvar Time = new Date();\nvar data = {Time, Power_MW,Power_MVAR,Frequency_HZ,PowerFactor};\nmsg.payload=data;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 560,
+        "wires": [
+            [
+                "141ba53244b04249"
+            ]
+        ]
+    },
+    {
+        "id": "af8123d9551bf473",
+        "type": "influxdb in",
+        "z": "d90f114c85d72797",
+        "influxdb": "90b373106b0e1332",
+        "name": "",
+        "query": "from(bucket: \"bucket2\")\n   |> range(start: -2h, stop: now())\n    |> filter(fn: (r) => r[\"_measurement\"] == \"test2\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Frequency_HZ\" or r[\"_field\"] == \"PowerFactor\" or r[\"_field\"] == \"Power_MVAR\" or r[\"_field\"] == \"Power_MW\")\n  |> aggregateWindow(every: 1h, fn: mean, createEmpty: false)\n  |> pivot(rowKey:[\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") \n  |> yield(name: \"mean\")\n   |> truncateTimeColumn(unit: 10m)\n \n\n  \n ",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "samlabs",
+        "x": 870,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9ed907ae095344a7",
+        "type": "comment",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "info": "pivot by time",
+        "x": 1060,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "5bee703d7aae6442",
+        "type": "function",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "func": "var DataIn=msg.payload;\nvar tzoffset_ms= (new Date()).getTimezoneOffset() * 60000; \nvar val0 = {\"Time\": DataIn[0]._time, \"Power_MW\":DataIn[0].Power_MW.toFixed(2),\"Power_MVAR\":DataIn[0].Power_MVAR.toFixed(2),\"Frequency\":DataIn[0].Frequency_HZ.toFixed(2),\"PowerFactor\":DataIn[0].PowerFactor.toFixed(2)};\nvar val1 = {\"Time\": DataIn[1]._time, \"Power_MW\":DataIn[1].Power_MW.toFixed(2),\"Power_MVAR\":DataIn[1].Power_MVAR.toFixed(2),\"Frequency\":DataIn[1].Frequency_HZ.toFixed(2),\"PowerFactor\":DataIn[1].PowerFactor.toFixed(2)};\nvar val2 = {\"Time\": DataIn[2]._time, \"Power_MW\":DataIn[2].Power_MW.toFixed(2),\"Power_MVAR\":DataIn[2].Power_MVAR.toFixed(2),\"Frequency\":DataIn[2].Frequency_HZ.toFixed(2),\"PowerFactor\":DataIn[2].PowerFactor.toFixed(2)};\nvar val3 = {\"Time\": DataIn[3]._time, \"Power_MW\":DataIn[3].Power_MW.toFixed(2),\"Power_MVAR\":DataIn[3].Power_MVAR.toFixed(2),\"Frequency\":DataIn[3].Frequency_HZ.toFixed(2),\"PowerFactor\":DataIn[3].PowerFactor.toFixed(2)};\nvar val4 = {\"Time\": DataIn[4]._time, \"Power_MW\":DataIn[4].Power_MW.toFixed(2),\"Power_MVAR\":DataIn[4].Power_MVAR.toFixed(2),\"Frequency\":DataIn[4].Frequency_HZ.toFixed(2),\"PowerFactor\":DataIn[4].PowerFactor.toFixed(2)};\nvar val5 = {\"Time\": DataIn[5]._time, \"Power_MW\":DataIn[5].Power_MW.toFixed(2),\"Power_MVAR\":DataIn[5].Power_MVAR.toFixed(2),\"Frequency\":DataIn[5].Frequency_HZ.toFixed(2),\"PowerFactor\":DataIn[5].PowerFactor.toFixed(2)};\nvar DataOut1 = {val0,val1,val2,val3,val4,val5} ;\nmsg.payload=JSON.stringify(DataOut1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 820,
+        "wires": [
+            [
+                "bb3a51ebabd72ef4",
+                "0cafc52731133af6"
+            ]
+        ]
+    },
+    {
+        "id": "0cafc52731133af6",
+        "type": "pusher out",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "channel": "chData_1h10m",
+        "cluster": "ap2",
+        "eventname": "Power",
+        "x": 1270,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "e4453d0388ad039a",
+        "type": "function",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "func": "var DataIn=Object.entries(msg.payload);\n\nmsg.payload=JSON.stringify(DataIn);\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9510266c1677a44f",
+        "type": "inject",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 1040,
+        "wires": [
+            [
+                "0b44804b884e7b57"
+            ]
+        ]
+    },
+    {
+        "id": "aa43d89c66f3b06f",
+        "type": "function",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "func": "var d =new Date().toString();\nmsg.payload= (new Date()).getTimezoneOffset() * 60000; \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d508ab88e277a37",
+        "type": "inject",
+        "z": "d90f114c85d72797",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 1220,
+        "wires": [
+            [
+                "aa43d89c66f3b06f"
+            ]
+        ]
+    }
+]

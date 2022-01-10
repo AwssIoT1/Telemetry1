@@ -1,0 +1,5 @@
+
+node-red -p 1881
+node-red-contrib-buffer-parser
+node-red-contrib-modbus-tcp-ip
+node-red-node-pusher
