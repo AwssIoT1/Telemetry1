@@ -3,30 +3,32 @@ import PropTypes from 'prop-types';
 import '../css/Gauge.css';
 import GaugeSVG from "./GaugeSVG.js"
 
-const Gauge = ({SignalName, SignalValue, SignalUnit, Valuemin,ValueMax,precision,valueDialClass }) => {
+const Gauge = ({SignalPar, SignalValue, valueDialClass,dialRadius,precision }) => {
 
 return (
     <div className='Gauge'>
        
       <div className="container">
       
-      <h3 ><b>{SignalName}</b></h3> 
+      <h3 ><b>{SignalPar.Name}</b></h3> 
       <div className='Gauge2'> 
          <GaugeSVG  
           value = {SignalValue}
-          max = {ValueMax}
+          min = {SignalPar.Min}
+          max = {SignalPar.Max}
           showValue = {true}
           gaugeClass = {"gauge-container"}
           dialClass = {"gauge-dial"}
           valueDialClass = {valueDialClass}
           valueClass = {"gauge-value-text"}
           precision ={precision}
+          dialRadius = {dialRadius}
           />
           </div>
-      <p className="ValueMin">{Valuemin} </p>
-      <p className="ValueMax">{ValueMax} </p>
+      <p className="ValueMin">{SignalPar.Min} </p>
+      <p className="ValueMax">{SignalPar.Max} </p>
       <canvas width = "200" height = "200"></canvas>  
-      <p className="SignalUnit">{SignalUnit}</p>  
+      <p className="SignalUnit">{SignalPar.Unit}</p>  
       
       
       
@@ -37,6 +39,10 @@ return (
      </div>
         );
 
+}
+
+Gauge.defaultProps = {
+  dialRadius: "40"
 }
 
 // Gauge.propTypes = {

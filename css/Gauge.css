@@ -5,6 +5,8 @@
     height: 180px;
     border: 1px;
     flex-direction: column;
+    margin-left: 10%;
+  
     float: left;
     position: relative;
   }
@@ -130,7 +132,7 @@ color: #16556F;
   .gauge-value-hz {
     stroke: #2fd5ff;
     stroke-width: 8;
-    fill: rgba(0,0,0,0);
+    fill: rgba(12, 7, 7, 0);
     
   }
   .gauge-value-pf {
@@ -147,16 +149,17 @@ color: #16556F;
     
   }
   .gauge-right{
-    margin-left: 100px;
+    margin-left: 50px;
    padding-left: 5px;
+   width: 100vw;
    gap: 20px;
    display: flex;
    flex-wrap: wrap;
    align-items: center;
    /* border: 1px rgb(21, 255, 0) solid; */
   /* background-color: red; */
-   
-  }
+ 
+}
 
   .gauge {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -168,3 +171,58 @@ color: #16556F;
     
     
   }
+
+  @media only screen and  (max-device-width: 500px) and (orientation: portrait) {
+    .gauge-right{
+      margin-left: 180px;
+      gap: 20px;
+      
+  }
+  .gauge-container {
+    width: 160px;
+  }
+}
+@media only screen and  (max-device-height: 500px) and (orientation: landscape) {
+  .gauge-right{
+    margin-left: 180px;
+}
+}
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+  /* some CSS here */
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-device-width: 640px) and (orientation: landscape){
+  /* some CSS here */
+}
+
+/* #### Mobile Phones Portrait or Landscape #### */
+@media screen and (max-device-width: 640px){
+  /* some CSS here */
+}
+
+/* #### iPhone 4+ Portrait or Landscape #### */
+@media screen and (min-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
+  /* some CSS here */
+}
+
+/* #### iPhone 5 Portrait or Landscape #### */
+@media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
+  /* some CSS here */
+}
+
+/* #### iPhone 6 and 6 plus Portrait or Landscape #### */
+@media (min-device-height: 667px) and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 3){
+  /* some CSS here */
+}
+
+/* #### Tablets Portrait or Landscape #### */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+  /* some CSS here */
+}
+
+/* #### Desktops #### */
+@media screen and (min-width: 1024px){
+  /* some CSS here */
+}
